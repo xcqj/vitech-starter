@@ -5,6 +5,8 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import VueRouter from 'vue-router/vite' // 导入新插件
+import UnoCSS from 'unocss/vite'
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -14,6 +16,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     vueDevTools(),
+    UnoCSS(),
   ],
   resolve: {
     alias: {
