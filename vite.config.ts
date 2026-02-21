@@ -6,7 +6,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import VueRouter from 'vue-router/vite' // 导入新插件
 import UnoCSS from 'unocss/vite'
-
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -17,6 +18,29 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
     UnoCSS(),
+    AutoImport({
+      // targets to transform
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.vue\.[tj]sx?\?vue/, // .vue (vue-loader with experimentalInlineMatchResource enabled)
+        /\.md$/, // .md
+      ],
+
+      // global imports to register
+      imports: [
+        // presets
+        'vue',
+        'vue-router',
+        '@vueuse/core'
+      ],
+
+    }),
+    Components({
+      directoryAsNamespace: true,
+      collapseSamePrefixes: true,
+    }),
   ],
   resolve: {
     alias: {
