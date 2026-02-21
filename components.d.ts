@@ -15,6 +15,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserChild: typeof import('./src/components/user/Child.vue')['default']
     UserComponent: typeof import('./src/components/user/Component.vue')['default']
     UserHelloWorld: typeof import('./src/components/user/HelloWorld.vue')['default']
   }
@@ -25,6 +26,7 @@ declare global {
   const HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
+  const UserChild: typeof import('./src/components/user/Child.vue')['default']
   const UserComponent: typeof import('./src/components/user/Component.vue')['default']
   const UserHelloWorld: typeof import('./src/components/user/HelloWorld.vue')['default']
 }
