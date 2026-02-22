@@ -9,6 +9,7 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'vue-macros/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -50,6 +51,9 @@ export default defineConfig({
       directoryAsNamespace: true,
       collapseSamePrefixes: true,
     }),
+    VitePWA({
+      registerType: 'autoUpdate',
+    })
   ],
   resolve: {
     alias: {
