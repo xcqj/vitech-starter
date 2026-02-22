@@ -11,6 +11,7 @@ import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'vue-macros/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import Layouts from 'vite-plugin-vue-layouts-next'
+import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -59,8 +60,17 @@ export default defineConfig({
       layoutsDirs: 'src/layouts',
       pagesDirs: 'src/pages',
       defaultLayout: 'default'
-    })
+    }),
+    mockDevServerPlugin(),
   ],
+  server: {
+    proxy: {
+      '/api': {   // mock--这里定义要拦截的路径前缀
+        target: 'http://localhost:3000',  // mock--任意可用的地址（实际不会请求）
+        changeOrigin: true,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
