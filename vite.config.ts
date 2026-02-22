@@ -10,6 +10,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'vue-macros/vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import Layouts from 'vite-plugin-vue-layouts-next'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -53,6 +54,11 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
+    }),
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      pagesDirs: 'src/pages',
+      defaultLayout: 'default'
     })
   ],
   resolve: {

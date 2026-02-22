@@ -1,12 +1,26 @@
 <template>
-  <RouterLink to="/">home</RouterLink>
-  <RouterLink to="/about">about</RouterLink>
-  <div class="">
+  <div class="about">
+    <RouterLink to="/">about-home</RouterLink>
+    <RouterLink to="/about">about-about</RouterLink>
     <h1>This is an about page</h1>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { RouterLink } from 'vue-router'
 </script>
-<style></style>
+
+<style>
+@media (min-width: 1024px) {
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
+
+<route lang="yaml">
+meta:
+  layout: home
+</route>

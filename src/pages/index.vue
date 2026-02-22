@@ -1,5 +1,5 @@
 <template>
-  <div>home</div>
+  <div>index-home</div>
 </template>
 <script setup lang="ts">
 import { registerSW } from 'virtual:pwa-register'
@@ -17,3 +17,8 @@ onMounted(() => {
 </script>
 
 <style></style>
+
+<route lang="yaml">
+meta:
+  layout: default
+</route>

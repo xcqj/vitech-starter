@@ -1,11 +1,11 @@
-<!-- src/layouts/default.vue -->
 <template>
-  <div class="layout-default">
-    <header>网站头部</header>
-    <main>
-      <RouterView />
-      <!-- 页面内容将渲染在此处 -->
-    </main>
-    <footer>网站底部</footer>
+  <div class="flex">
+    <router-link to="/">default-home</router-link>
+    <router-link to="/about">default-about</router-link>
   </div>
+  <router-view></router-view>
 </template>
+
+<script setup lang="ts"></script>
+
+<style scoped></style>
