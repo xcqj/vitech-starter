@@ -8,7 +8,7 @@ import VueRouter from 'vue-router/vite' // 导入新插件
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import VueMacros from 'vue-macros/vite'
+//import VueMacros from 'vue-macros/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import Layouts from 'vite-plugin-vue-layouts-next'
 import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server'
@@ -18,16 +18,18 @@ export default defineConfig({
     VueRouter({
       dts: 'src/route-map.d.ts' // 可选：生成类型文件，增强IDE支持
     }),
-    VueMacros({
-      plugins: {
-        vue: vue(),
-        vueJsx: vueJsx(), // 如有需要
-        // vueRouter: VueRouter({ // 如有需要
-        //   extensions: ['.vue', '.setup.tsx']
-        // })
-      },
-      // 覆盖插件选项
-    }),
+    vue(),
+    vueJsx(),
+    // VueMacros({
+    //   plugins: {
+    //     vue: vue(),
+    //     vueJsx: vueJsx(), // 如有需要
+    //     // vueRouter: VueRouter({ // 如有需要
+    //     //   extensions: ['.vue', '.setup.tsx']
+    //     // })
+    //   },
+    //   // 覆盖插件选项
+    // }),
     vueDevTools(),
     UnoCSS(),
     AutoImport({
